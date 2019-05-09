@@ -1,18 +1,20 @@
 import * as React from 'react';
+import { StyledButton } from './styled';
 
 interface IProps {
   children?: string;
-  type?: string;
+  buttonType?: string;
   onClick: () => void;
 }
 
-const Button: React.FC<IProps> = ({ children, onClick }) => {
+const Button: React.FC<IProps> = ({ children, buttonType, onClick }) => {
   return (
-    <button
+    <StyledButton
+      className={buttonType}
       onClick={onClick}
     >
       {children}
-    </button>    
+    </StyledButton>    
   );
 }
 

@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <div>
       <h1>Expense Form</h1>
       <Button
-        type="primary"
+        buttonType="primary"
         onClick={() => addNewEntry()}
       >
         +
