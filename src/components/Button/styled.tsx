@@ -4,7 +4,7 @@ export const baseButton = css`
   border: 1px solid transparent;
   line-height: 16px;
   text-align: center;
-  height: 48px;
+  height: 42px;
   color: white;
   min-width: 250px;
   position: relative;
@@ -44,6 +44,23 @@ export const secondaryButton = css`
   }
 `;
 
+export const EditButton = css`
+  background-color: #e8be1b;
+  min-width: auto;
+
+  &:hover {
+    background-color: #c5a218;
+  }
+`;
+
+export const plusButton = css`
+  line-height: 20px;
+  padding: 0px 12px 4px;
+  font-size: 24px;
+  min-width: auto;
+  font-weight: 400;
+`;
+
 export const StyledButton = styled.button`
   ${baseButton}
 
@@ -53,5 +70,14 @@ export const StyledButton = styled.button`
 
   &.secondary {
     ${secondaryButton}
+  }
+
+  &.edit {
+    ${EditButton}
+  }
+
+  &.plus {
+    ${primaryButton}
+    ${plusButton}
   }
 `;
