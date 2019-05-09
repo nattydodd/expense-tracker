@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const primaryButton = css`
-  background-color: black;
+export const baseButton = css`
   border: 1px solid transparent;
   line-height: 16px;
   text-align: center;
@@ -14,15 +13,45 @@ export const primaryButton = css`
   border-radius: 4px;
   font-size: 14px;
 
+  &:hover {
+    cursor:pointer; 
+  }
+
   &:hover,
   &:active,
   &:focus {
     outline: 1px solid transparent;
   }
+
+  &:active {
+    transform: translate(0, 1px);
+  }
+`;
+
+export const primaryButton = css`
+  background-color: #00bcd4;
+
+  &:hover {
+    background-color: #028ea0;
+  }
+`;
+
+export const secondaryButton = css`
+  background-color: #e8be1b;
+
+  &:hover {
+    background-color: #c5a218;
+  }
 `;
 
 export const StyledButton = styled.button`
+  ${baseButton}
+
   &.primary {
     ${primaryButton}
+  }
+
+  &.secondary {
+    ${secondaryButton}
   }
 `;

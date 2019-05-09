@@ -4,7 +4,7 @@ import { StyledButton } from './styled';
 interface IProps {
   children?: string;
   buttonType?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button: React.FC<IProps> = ({ children, buttonType, onClick }) => {
