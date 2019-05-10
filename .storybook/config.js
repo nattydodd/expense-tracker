@@ -1,9 +1,11 @@
 import { configure } from '@storybook/react';
 
-const req = require.context('../src/components', true, /\.stories\.tsx$/);
+const atoms = require.context('../src/atoms', true, /\.stories\.tsx$/);
+const molecules = require.context('../src/molecules', true, /\.stories\.tsx$/);
 
 function loadStories() {
-  req.keys().forEach((filename) => req(filename));
+  atoms.keys().forEach((filename) => atoms(filename));
+  molecules.keys().forEach((filename) => molecules(filename));
 }
 
 configure(loadStories, module);

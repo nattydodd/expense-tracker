@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react'; 
 import Button from './index';
 
-storiesOf('Components/Button', module)
+storiesOf('atoms/Button', module)
   .add('Types of buttons', () => (
     <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
       <Button buttonType="primary">
@@ -13,5 +13,6 @@ storiesOf('Components/Button', module)
       </Button>
       <Button buttonType="edit"/>
       <Button buttonType="plus"/>
+      <Button buttonType="delete"/>
     </div>
   ));

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import './App.css';
-import Button from './components/Button/index';
+import Button from './atoms/Button/index';
 
 function addNewEntry() {
-  console.log("test");
+  // Todo: pass this in.
 }
 
 const App: React.FC = () => {

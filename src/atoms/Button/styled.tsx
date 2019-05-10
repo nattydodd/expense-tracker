@@ -4,7 +4,7 @@ export const baseButton = css`
   border: 1px solid transparent;
   line-height: 16px;
   text-align: center;
-  height: 42px;
+  height: 45px;
   color: white;
   min-width: 250px;
   position: relative;
@@ -57,8 +57,21 @@ export const plusButton = css`
   line-height: 20px;
   padding: 0px 12px 4px;
   font-size: 24px;
-  min-width: auto;
   font-weight: 400;
+  min-width: auto;
+  width: 45px;
+`;
+
+export const deleteButton = css`
+  font-size: 22px;
+  padding: 0px 0 4px;
+  color: black;
+  border: 2px solid black;
+  text-align: center;
+
+  &:hover {
+    background-color: #d2cece;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -79,5 +92,10 @@ export const StyledButton = styled.button`
   &.plus {
     ${primaryButton}
     ${plusButton}
+  }
+
+  &.delete {
+    ${plusButton}
+    ${deleteButton}
   }
 `;
