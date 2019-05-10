@@ -62,6 +62,17 @@ export const plusButton = css`
   width: 45px;
 `;
 
+export const confirmButton = css`
+  padding: 0px 12px 2px;
+  font-size: 22px;
+  font-weight: 500;
+  background-color: #06d292;
+
+  &:hover {
+    background-color: #11a275;
+  }
+`;
+
 export const deleteButton = css`
   font-size: 22px;
   padding: 0px 0 4px;
@@ -92,6 +103,11 @@ export const StyledButton = styled.button`
   &.plus {
     ${primaryButton}
     ${plusButton}
+  }
+
+  &.confirm {
+    ${plusButton}
+    ${confirmButton}
   }
 
   &.delete {

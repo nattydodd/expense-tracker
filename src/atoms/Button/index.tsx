@@ -16,6 +16,7 @@ const Button: React.FC<IProps> = ({ children, buttonType, onClick }) => {
       {buttonType === 'edit' ? 'Edit'
         : buttonType === 'plus' ? '+'
         : buttonType === 'delete' ? 'x'
+        : buttonType === 'confirm' ? '✓'
         : children}
     </StyledButton>    
   );

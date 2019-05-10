@@ -1,18 +1,28 @@
 import * as React from 'react';
 import './App.css';
-import Button from './atoms/Button/index';
-
-function addNewEntry() {
-  // Todo: pass this in.
-}
+import InputUnit from './molecules/InputUnit';
+import Button from './atoms/Button';
+import Input from './atoms/Input';
 
 const App: React.FC = () => {
   return (
     <div>
       <h1>Expense Form</h1>
-      <Button
-        buttonType="plus"
-        onClick={() => addNewEntry()}
+      <InputUnit
+        post={[
+          <Button buttonType='plus'/>,
+          <Button buttonType='delete'/>
+        ]}
+        input={<Input placeholder="What did you buy?" id="expense"/>}
+        label="Title"
+      />
+      <InputUnit
+        post={[
+          <Button buttonType='confirm'/>,
+          <Button buttonType='delete'/>
+        ]}
+        input={<Input placeholder="How much did it cost?" id="cost"/>}
+        label="Amount"
       />
     </div>
   );

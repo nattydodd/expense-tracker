@@ -9,6 +9,10 @@ interface IProps {
   label?: string;
 }
 
+const divStyle = {
+  margin: '24px 0'
+};
+
 const InputUnit: React.FC<IProps> = ({
    pre,
    post,
@@ -16,7 +20,7 @@ const InputUnit: React.FC<IProps> = ({
    label
  }) => {
   return (
-    <div>
+    <div style={divStyle}>
       <InputLabel 
         htmlFor={input.props.id}>
         {label}
