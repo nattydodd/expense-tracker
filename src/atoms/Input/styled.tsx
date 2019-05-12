@@ -1,6 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const baseInput = css`
+// interface InputProps {
+//   readonly innerIcon?: string;
+// };
+
+export const StyledInput = styled.input`
   height: 45px;
   max-height: 45px;
   padding: 0 16px;
@@ -10,8 +14,4 @@ export const baseInput = css`
   outline: none;
   border: 2px solid #dedede;
   font-size: 16px;
-`;
-
-export const StyledInput = styled.input`
-  ${baseInput}
 `;

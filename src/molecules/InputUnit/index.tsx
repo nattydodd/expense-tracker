@@ -9,10 +9,6 @@ interface IProps {
   label?: string;
 }
 
-const divStyle = {
-  margin: '24px 0'
-};
-
 const InputUnit: React.FC<IProps> = ({
    pre,
    post,
@@ -20,17 +16,20 @@ const InputUnit: React.FC<IProps> = ({
    label
  }) => {
   return (
-    <div style={divStyle}>
-      <InputLabel 
-        htmlFor={input.props.id}>
+    <StyledInputUnit>
+      <InputLabel
+        htmlFor={input.props.id}
+      >
         {label}
       </InputLabel>
-      <StyledInputUnit>
+      <div className="input-wrapper">
         {pre && pre.map(item => item)}
-        {input}
+        <span className="input">
+          {input}
+        </span>
         {post && post.map(item => item)}
-      </StyledInputUnit>
-    </div>
+      </div>
+    </StyledInputUnit>
   );
 }
 

@@ -8,6 +8,8 @@ interface IProps {
   onChange?: () => void;
   onFocus?: () => void;
   id: string;
+  prefix?: any;
+  suffix?: any;
 }
 
 const Input: React.FC<IProps> = ({
@@ -16,17 +18,23 @@ const Input: React.FC<IProps> = ({
    value,
    onChange,
    onFocus,
-   id
+   id,
+   prefix,
+   suffix
  }) => {
   return (
-    <StyledInput 
-      id={id}
-      placeholder={placeholder}
-      disabled={disabled}
-      value={value}
-      onChange={onChange}
-      onFocus={onFocus}
-    />  
+    <React.Fragment>
+      {prefix}
+      <StyledInput
+        id={id}
+        placeholder={placeholder}
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+        onFocus={onFocus}
+      />
+      {suffix}
+    </React.Fragment>
   );
 }
 

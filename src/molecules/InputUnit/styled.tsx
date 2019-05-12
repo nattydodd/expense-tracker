@@ -1,14 +1,18 @@
-import styled, { css } from 'styled-components';
-
-export const inputUnit = css`
-  display: flex;
-  align-items: center;
-`;
+import styled from 'styled-components';
 
 export const StyledInputUnit = styled.div`
-  ${inputUnit}
+  margin: 24px 0;
 
-  input + button {
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .input {
+    position: relative;
+  }
+
+  .input ~ button {
     margin-left: 8px;
   }
 
