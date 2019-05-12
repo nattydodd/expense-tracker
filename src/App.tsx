@@ -16,18 +16,22 @@ const App: React.FC = () => {
         Add New
        */}
       <InputUnit
-        post={[
-          <Button buttonType='plus'/>,
-          <Button buttonType='delete'/>
-        ]}
+        post={
+          <React.Fragment>
+            <Button buttonType='plus'/>
+            <Button buttonType='delete'/>
+          </React.Fragment>
+        }
       input={<Input placeholder="What did you buy?" id="expense" />}
         label="Title"
       />
       <InputUnit
-        post={[
-          <Button buttonType='confirm'/>,
-          <Button buttonType='delete'/>
-        ]}
+        post={
+          <React.Fragment>
+            <Button buttonType='confirm'/>
+            <Button buttonType='delete'/>
+          </React.Fragment>
+        }
       input={
         <Input
           placeholder="How much did it cost?"

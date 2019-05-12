@@ -3,8 +3,8 @@ import { StyledInputUnit } from './styled';
 import InputLabel from '../../atoms/InputLabel';
 
 interface IProps {
-  pre?: any[];
-  post?: any[];
+  pre?: any;
+  post?: any;
   input: any;
   label?: string;
 }
@@ -23,11 +23,11 @@ const InputUnit: React.FC<IProps> = ({
         {label}
       </InputLabel>
       <div className="input-wrapper">
-        {pre && pre.map(item => item)}
+        {pre}
         <span className="input">
           {input}
         </span>
-        {post && post.map(item => item)}
+        {post}
       </div>
     </StyledInputUnit>
   );
