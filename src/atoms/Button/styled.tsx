@@ -14,7 +14,7 @@ export const baseButton = css`
   font-size: 14px;
 
   &:hover {
-    cursor:pointer; 
+    cursor:pointer;
   }
 
   &:hover,
@@ -63,7 +63,7 @@ export const plusButton = css`
 `;
 
 export const confirmButton = css`
-  padding: 0px 12px 2px;
+  padding: 0px 12px;
   font-size: 22px;
   font-weight: 500;
   background-color: #06d292;

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { StyledInput } from './styled';
-import { string } from 'prop-types';
 
 interface IProps {
   placeholder?: string;

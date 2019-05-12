@@ -4,7 +4,7 @@ import InputUnit from './molecules/InputUnit';
 import Button from './atoms/Button';
 import Input from './atoms/Input';
 import InputCurrencySymbol from './atoms/InputCurrencySymbol';
-import EditableListItem from './molecules/EditableListItem';
+import ExpenseItemManager from './organisms/ExpenseItemManager';
 
 const fakeExpenses = [
   {
@@ -44,30 +44,9 @@ const App: React.FC = () => {
         alignItems: 'center'
       }}>
         {fakeExpenses.map(expense => (
-          <EditableListItem
+          <ExpenseItemManager
             key={expense.id}
-            item={
-              <React.Fragment>
-                <div style={{
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  padding: '8px',
-                  width: '80%'
-                }}>
-                  {expense.name}
-                </div>
-                <div style={{
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  padding: '8px',
-                  width: '20%'
-                }}>
-                  {expense.currency}{expense.amount}
-                </div>
-              </React.Fragment>
-            }
+            expense={expense}
           />
         ))}
       </ul>
@@ -99,20 +78,6 @@ const App: React.FC = () => {
         />
       }
       label="Amount"
-      />
-      <InputUnit
-        post={
-          <React.Fragment>
-            <Button buttonType='plus'/>
-            <Button buttonType='delete'/>
-          </React.Fragment>
-        }
-        input={
-          <React.Fragment>
-            <Input inputWidth="60%" placeholder="What did you buy?" />
-            <Input inputWidth="40%" placeholder="How Much?" suffix={<InputCurrencySymbol symbol='€' />} />
-          </React.Fragment>
-        }
       />
     </div>
   );

@@ -17,11 +17,13 @@ const InputUnit: React.FC<IProps> = ({
  }) => {
   return (
     <StyledInputUnit>
-      <InputLabel
-        htmlFor={input.props.id}
-      >
-        {label}
-      </InputLabel>
+      {label &&
+        <InputLabel
+          htmlFor={input.props.id}
+        >
+          {label}
+        </InputLabel>
+      }
       <div className="input-wrapper">
         {pre}
         <span className="input">
