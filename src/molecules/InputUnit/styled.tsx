@@ -11,9 +11,14 @@ export const StyledInputUnit = styled.div`
   .input {
     position: relative;
     flex: 1;
+    display: flex;
   }
 
   .input ~ button {
+    margin-left: 8px;
+  }
+
+  input + input {
     margin-left: 8px;
   }
 

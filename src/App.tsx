@@ -31,7 +31,7 @@ const App: React.FC = () => {
   return (
     <div style={{
       width: '450px',
-      margin: 'auto',
+      margin: '0 auto 24px',
       display: 'flex',
       flexDirection: 'column'
     }}>
@@ -45,8 +45,9 @@ const App: React.FC = () => {
       }}>
         {fakeExpenses.map(expense => (
           <EditableListItem
+            key={expense.id}
             item={
-              <React.Fragment key={expense.id}>
+              <React.Fragment>
                 <div style={{
                   height: '100%',
                   display: 'flex',
@@ -98,6 +99,20 @@ const App: React.FC = () => {
         />
       }
       label="Amount"
+      />
+      <InputUnit
+        post={
+          <React.Fragment>
+            <Button buttonType='plus'/>
+            <Button buttonType='delete'/>
+          </React.Fragment>
+        }
+        input={
+          <React.Fragment>
+            <Input inputWidth="60%" placeholder="What did you buy?" />
+            <Input inputWidth="40%" placeholder="How Much?" suffix={<InputCurrencySymbol symbol='€' />} />
+          </React.Fragment>
+        }
       />
     </div>
   );

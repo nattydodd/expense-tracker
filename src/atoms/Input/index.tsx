@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StyledInput } from './styled';
+import { string } from 'prop-types';
 
 interface IProps {
   placeholder?: string;
@@ -7,9 +8,10 @@ interface IProps {
   value?: string | number;
   onChange?: () => void;
   onFocus?: () => void;
-  id: string;
+  id?: string;
   prefix?: any;
   suffix?: any;
+  inputWidth?: string;
 }
 
 const Input: React.FC<IProps> = ({
@@ -20,7 +22,8 @@ const Input: React.FC<IProps> = ({
    onFocus,
    id,
    prefix,
-   suffix
+   suffix,
+   inputWidth
  }) => {
   return (
     <React.Fragment>
@@ -32,6 +35,7 @@ const Input: React.FC<IProps> = ({
         value={value}
         onChange={onChange}
         onFocus={onFocus}
+        inputWidth={inputWidth}
       />
       {suffix}
     </React.Fragment>
