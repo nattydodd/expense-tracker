@@ -5,12 +5,13 @@ interface IProps {
   children?: string;
   buttonType?: string;
   onClick?: () => void;
+  className?: string;
 }
 
-const Button: React.FC<IProps> = ({ children, buttonType, onClick }) => {
+const Button: React.FC<IProps> = ({ className, children, buttonType, onClick }) => {
   return (
     <StyledButton
-      className={buttonType}
+      className={`${className} ${buttonType}`}
       onClick={onClick}
     >
       {buttonType === 'edit' ? 'Edit'
@@ -18,7 +19,7 @@ const Button: React.FC<IProps> = ({ children, buttonType, onClick }) => {
         : buttonType === 'delete' ? 'x'
         : buttonType === 'confirm' ? '✓'
         : children}
-    </StyledButton>    
+    </StyledButton>
   );
 }
 

@@ -1,10 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import InputUnit from './molecules/InputUnit';
-import Button from './atoms/Button';
-import Input from './atoms/Input';
-import InputCurrencySymbol from './atoms/InputCurrencySymbol';
 import ExpenseItemManager from './organisms/ExpenseItemManager';
+import NewExpenseManager from './organisms/NewExpenseManager';
 
 const fakeExpenses = [
   {
@@ -41,7 +38,8 @@ const App: React.FC = () => {
         paddingLeft: 0,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: '20px 0 0'
       }}>
         {fakeExpenses.map(expense => (
           <ExpenseItemManager
@@ -50,35 +48,7 @@ const App: React.FC = () => {
           />
         ))}
       </ul>
-      <Button buttonType="primary">
-        Add New Expense
-      </Button>
-      <InputUnit
-        post={
-          <React.Fragment>
-            <Button buttonType='plus'/>
-            <Button buttonType='delete'/>
-          </React.Fragment>
-        }
-      input={<Input placeholder="What did you buy?" id="expense" />}
-        label="Title"
-      />
-      <InputUnit
-        post={
-          <React.Fragment>
-            <Button buttonType='confirm'/>
-            <Button buttonType='delete'/>
-          </React.Fragment>
-        }
-      input={
-        <Input
-          placeholder="How much did it cost?"
-          id="cost"
-          suffix={<InputCurrencySymbol symbol='€'/>}
-        />
-      }
-      label="Amount"
-      />
+      <NewExpenseManager/>
     </div>
   );
 }
