@@ -9,6 +9,7 @@ export const StyledInput = styled.input`
   max-height: 45px;
   padding: 0 16px;
   line-height: 16px;
+  width: 100%;
   min-width: 250px;
   border-radius: 4px;
   outline: none;

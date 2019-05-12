@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledInputUnit = styled.div`
-  margin: 24px 0;
+  margin-top: 24px;
 
   .input-wrapper {
     display: flex;
@@ -10,6 +10,7 @@ export const StyledInputUnit = styled.div`
 
   .input {
     position: relative;
+    flex: 1;
   }
 
   .input ~ button {

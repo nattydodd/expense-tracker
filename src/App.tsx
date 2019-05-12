@@ -4,17 +4,75 @@ import InputUnit from './molecules/InputUnit';
 import Button from './atoms/Button';
 import Input from './atoms/Input';
 import InputCurrencySymbol from './atoms/InputCurrencySymbol';
+import EditableListItem from './molecules/EditableListItem';
+
+const fakeExpenses = [
+  {
+    id: 0,
+    name: 'groceries May 5th',
+    amount: 40,
+    currency: '€'
+  },
+  {
+    id: 1,
+    name: 'new headphones',
+    amount: 109,
+    currency: '€'
+  },
+  {
+    id: 2,
+    name: 'Starbucks May 7th',
+    amount: 8.50,
+    currency: '€'
+  }
+]
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Monthly Expenses</h1>
-      {/* Summary
-        Name $Amount Edit delete
-        Name $Amount Edit delete
-        Name $Amount Edit delete
-        Add New
-       */}
+    <div style={{
+      width: '450px',
+      margin: 'auto',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      <h1 style={{textAlign: 'center'}}>Monthly Expenses</h1>
+      <h2 style={{textAlign: 'center'}}>Summary</h2>
+      <ul style={{
+        paddingLeft: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
+        {fakeExpenses.map(expense => (
+          <EditableListItem
+            item={
+              <React.Fragment key={expense.id}>
+                <div style={{
+                  height: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '8px',
+                  width: '80%'
+                }}>
+                  {expense.name}
+                </div>
+                <div style={{
+                  height: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '8px',
+                  width: '20%'
+                }}>
+                  {expense.currency}{expense.amount}
+                </div>
+              </React.Fragment>
+            }
+          />
+        ))}
+      </ul>
+      <Button buttonType="primary">
+        Add New Expense
+      </Button>
       <InputUnit
         post={
           <React.Fragment>
