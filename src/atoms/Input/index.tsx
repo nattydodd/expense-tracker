@@ -13,32 +13,45 @@ interface IProps {
   inputWidth?: string;
 }
 
-const Input: React.FC<IProps> = ({
-   placeholder,
-   disabled,
-   value,
-   onChange,
-   onFocus,
-   id,
-   prefix,
-   suffix,
-   inputWidth
- }) => {
-  return (
-    <React.Fragment>
-      {prefix}
-      <StyledInput
-        id={id}
-        placeholder={placeholder}
-        disabled={disabled}
-        value={value}
-        onChange={onChange}
-        onFocus={onFocus}
-        inputWidth={inputWidth}
-      />
-      {suffix}
-    </React.Fragment>
-  );
+class Input extends React.Component<IProps> {
+  state = {
+    value: this.props.value ? this.props.value : ''
+  }
+
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      value: e.target.value
+    })
+    this.props.onChange && this.props.onChange();
+  }
+
+  render() {
+    const {
+      placeholder,
+      disabled,
+      onFocus,
+      id,
+      prefix,
+      suffix,
+      inputWidth
+    } = this.props
+
+    return (
+      <React.Fragment>
+        {prefix}
+        <StyledInput
+          id={id}
+          placeholder={placeholder}
+          disabled={disabled}
+          value={this.state.value}
+          onChange={this.handleChange.bind(this)}
+          onFocus={onFocus}
+          inputWidth={inputWidth}
+        />
+        {suffix}
+      </React.Fragment>
+    );
+  }
 }
 
 export default Input;
