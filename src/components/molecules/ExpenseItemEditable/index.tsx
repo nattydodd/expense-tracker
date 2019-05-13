@@ -7,11 +7,13 @@ import InputCurrencySymbol from '../../atoms/InputCurrencySymbol';
 interface IProps {
   expense: any;
   clickConfirm: () => void;
+  clickDelete: () => void;
 }
 
 const ExpenseItemEditable: React.FC<IProps> = ({
   expense,
-  clickConfirm
+  clickConfirm,
+  clickDelete
  }) => {
   return (
     <React.Fragment>
@@ -19,7 +21,7 @@ const ExpenseItemEditable: React.FC<IProps> = ({
         post={
           <React.Fragment>
             <Button buttonType='confirm' onClick={clickConfirm} />
-            <Button buttonType='delete'/>
+            <Button buttonType='delete' onClick={clickDelete}/>
           </React.Fragment>
         }
         input={

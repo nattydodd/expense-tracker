@@ -6,7 +6,7 @@ import InputCurrencySymbol from '../../atoms/InputCurrencySymbol';
 import { StyledNewExpenseManager } from './styled';
 import { IExpense } from '../../../utils/mockData';
 import { v4 as uuid } from 'uuid';
-import { saveNewExpense } from '../../../actions/shared';
+import { _saveNewExpense } from '../../../actions/shared';
 import { connect } from 'react-redux';
 
 const currencySymbol = '€';
@@ -50,7 +50,7 @@ class NewExpenseManager extends React.Component<IProps> {
       currency: currencySymbol
     }
     
-    this.props.dispatch(saveNewExpense(expenseObject));
+    this.props.dispatch(_saveNewExpense(expenseObject));
     this.setState({showInput: false});
     this.resetFields();
   }
@@ -107,10 +107,4 @@ class NewExpenseManager extends React.Component<IProps> {
   }
 }
 
-function mapStateToProps({ expenses }: { expenses: IExpense[]}) {
-  return {
-    expenses
-  }
-}
-
-export default connect(mapStateToProps)(NewExpenseManager);
+export default connect()(NewExpenseManager);

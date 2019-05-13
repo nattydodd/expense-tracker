@@ -2,7 +2,7 @@ import * as React from 'react';
 import ExpenseItemManager from '../../organisms/ExpenseItemManager';
 import NewExpenseManager from '../../organisms/NewExpenseManager';
 import { connect } from 'react-redux';
-import { getExpenses } from '../../../actions/shared';
+import { _getExpenses } from '../../../actions/shared';
 import { IExpense } from '../../../utils/mockData';
 import { StyledExpenseSummary } from './styled';
 
@@ -13,7 +13,7 @@ interface IProps {
 
 class ExpenseSummary extends React.Component<IProps> {
   componentWillMount() {
-    this.props.dispatch(getExpenses());
+    this.props.dispatch(_getExpenses());
   }
 
   render() {

@@ -3,9 +3,11 @@ import * as React from 'react';
 import ExpenseItem from '../../molecules/ExpenseItem';
 import ExpenseItemEditable from '../../molecules/ExpenseItemEditable';
 import { StyledExpenseItemManager } from './styled';
-
+import { _deleteExpense } from '../../../actions/shared';
+import { connect } from 'react-redux';
 interface IProps {
   expense: any;
+  dispatch: (action: any) => any
 }
 
 class ExpenseItemManager extends React.Component<IProps> {
@@ -17,6 +19,11 @@ class ExpenseItemManager extends React.Component<IProps> {
     this.setState({ editable: false });
   }
 
+  handleDeleteExpense() {
+    const expenseId = this.props.expense.id
+    this.props.dispatch(_deleteExpense(expenseId));
+  }
+
   render() {
     const { expense } = this.props;
     const { editable } = this.state;
@@ -26,6 +33,7 @@ class ExpenseItemManager extends React.Component<IProps> {
         {editable ?
           <ExpenseItemEditable
             expense={expense}
+            clickDelete={this.handleDeleteExpense.bind(this)}
             clickConfirm={this.saveEdits.bind(this)}
           />
         : <ExpenseItem
@@ -38,4 +46,4 @@ class ExpenseItemManager extends React.Component<IProps> {
   }
 }
 
-export default ExpenseItemManager;
+export default connect()(ExpenseItemManager);
