@@ -4,19 +4,59 @@ import Button from '../../atoms/Button';
 import Input from '../../atoms/Input';
 import InputCurrencySymbol from '../../atoms/InputCurrencySymbol';
 import { StyledNewExpenseManager } from './styled';
+import { IExpense } from '../../../utils/mockData';
+import { v4 as uuid } from 'uuid';
+import { saveNewExpense } from '../../../actions/shared';
+import { connect } from 'react-redux';
 
-class NewExpenseManager extends React.Component {
+const currencySymbol = '€';
+interface IProps {
+  dispatch: (action: any) => any
+}
+
+class NewExpenseManager extends React.Component<IProps> {
   state = {
-    showInput: false
+    showInput: false,
+    expenseName: '',
+    expenseAmount: '',
+  }
+
+  updateExpenseName(value: React.ReactText) {
+    this.setState({
+      expenseName: value
+    });
+  }
+
+  updateExpenseAmount(value: React.ReactText) {
+    this.setState({
+      expenseAmount: value
+    });
+  }
+
+  resetFields() {
+    this.setState({
+      expenseName: '',
+      expenseAmount: ''
+    })
   }
 
   addExpense() {
-    // Todo: add logic here
-    this.setState({showInput: false})
+    const parsedAmount = parseFloat(this.state.expenseAmount);
+
+    const expenseObject: IExpense = {
+      id: uuid(),
+      name: this.state.expenseName,
+      amount: parsedAmount,
+      currency: currencySymbol
+    }
+    
+    this.props.dispatch(saveNewExpense(expenseObject));
+    this.setState({showInput: false});
+    this.resetFields();
   }
 
   cancel() {
-    this.setState({showInput: false})
+    this.setState({showInput: false});
   }
 
   render() {
@@ -39,12 +79,17 @@ class NewExpenseManager extends React.Component {
               <React.Fragment>
                 <Input
                   placeholder="What did you buy?"
+                  value={this.state.expenseName}
+                  onChange={this.updateExpenseName.bind(this)}
                   id="expense"
                 />
                 <Input
                   placeholder="How much?"
+                  value={this.state.expenseAmount}
+                  onChange={this.updateExpenseAmount.bind(this)}
                   id="cost"
-                  suffix={<InputCurrencySymbol symbol='€'/>}
+                  type="number"
+                  suffix={<InputCurrencySymbol symbol={currencySymbol} />}
                 />
               </React.Fragment>
             }
@@ -62,4 +107,10 @@ class NewExpenseManager extends React.Component {
   }
 }
 
-export default NewExpenseManager;
+function mapStateToProps({ expenses }: { expenses: IExpense[]}) {
+  return {
+    expenses
+  }
+}
+
+export default connect(mapStateToProps)(NewExpenseManager);

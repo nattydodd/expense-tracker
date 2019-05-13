@@ -1,5 +1,5 @@
 export interface IExpense {
-  id: number,
+  id: string,
   name: string,
   amount: number,
   currency: string
@@ -7,19 +7,19 @@ export interface IExpense {
 
 export const fakeExpenses: IExpense[] = [
   {
-    id: 0,
+    id: '02345',
     name: 'groceries May 5th',
     amount: 40,
     currency: '€'
   },
   {
-    id: 1,
+    id: '53415',
     name: 'new headphones',
     amount: 109,
     currency: '€'
   },
   {
-    id: 2,
+    id: '54642',
     name: 'Starbucks May 7th',
     amount: 8.50,
     currency: '€'

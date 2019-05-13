@@ -5,9 +5,10 @@ interface IProps {
   placeholder?: string;
   disabled?: boolean;
   value?: string | number;
-  onChange?: () => void;
+  onChange?: (value: React.ReactText) => void;
   onFocus?: () => void;
   id?: string;
+  type?: string;
   prefix?: any;
   suffix?: any;
   inputWidth?: string;
@@ -22,7 +23,7 @@ class Input extends React.Component<IProps> {
     this.setState({
       value: e.target.value
     })
-    this.props.onChange && this.props.onChange();
+    this.props.onChange && this.props.onChange(e.target.value);
   }
 
   render() {
@@ -33,7 +34,8 @@ class Input extends React.Component<IProps> {
       id,
       prefix,
       suffix,
-      inputWidth
+      inputWidth,
+      type
     } = this.props
 
     return (
@@ -42,6 +44,7 @@ class Input extends React.Component<IProps> {
         <StyledInput
           id={id}
           placeholder={placeholder}
+          type={type}
           disabled={disabled}
           value={this.state.value}
           onChange={this.handleChange.bind(this)}
