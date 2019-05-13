@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import ExpenseItemManager from './organisms/ExpenseItemManager';
-import NewExpenseManager from './organisms/NewExpenseManager';
+import ExpenseItemManager from './components/organisms/ExpenseItemManager';
+import NewExpenseManager from './components/organisms/NewExpenseManager';
 
 const fakeExpenses = [
   {

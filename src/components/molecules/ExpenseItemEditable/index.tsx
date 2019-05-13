@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Button from '../../atoms/Button';
-import InputUnit from '../../molecules/InputUnit';
+import InputUnit from '../InputUnit';
 import Input from '../../atoms/Input';
 import InputCurrencySymbol from '../../atoms/InputCurrencySymbol';
 
