@@ -8,8 +8,8 @@ import { IExpense } from '../../../utils/mockData';
 import { v4 as uuid } from 'uuid';
 import { _saveNewExpense } from '../../../actions/shared';
 import { connect } from 'react-redux';
+import { currencySymbol } from '../../../utils/locale';
 
-const currencySymbol = '€';
 interface IProps {
   dispatch: (action: any) => any
 }
@@ -21,13 +21,13 @@ class NewExpenseManager extends React.Component<IProps> {
     expenseAmount: '',
   }
 
-  updateExpenseName(value: React.ReactText) {
+  updateExpenseName(value: string) {
     this.setState({
       expenseName: value
     });
   }
 
-  updateExpenseAmount(value: React.ReactText) {
+  updateExpenseAmount(value: string) {
     this.setState({
       expenseAmount: value
     });

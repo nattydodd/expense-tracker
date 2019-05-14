@@ -6,6 +6,7 @@ import InputCurrencySymbol from '../../atoms/InputCurrencySymbol';
 import { IExpense } from '../../../utils/mockData';
 import { _updateExpense } from '../../../actions/shared';
 import { connect } from 'react-redux';
+import { currencySymbol } from '../../../utils/locale';
 
 interface IProps {
   expense: any;
@@ -26,6 +27,15 @@ class ExpenseItemEditable extends React.Component<IProps> {
   handleClickConfirm() {
     this.props.dispatch(_updateExpense(this.state.expense));
     this.props.clickConfirm();
+  }
+
+  handleUpdateAmount(value: string) {
+    this.setState({
+      expense: {
+        ...this.state.expense,
+        amount: parseFloat(value)
+      }
+    });
   }
 
   render() {
@@ -60,14 +70,10 @@ class ExpenseItemEditable extends React.Component<IProps> {
                 inputWidth="40%"
                 placeholder="How Much?"
                 value={expense.amount}
-                onChange={(value) => this.setState({
-                  expense: {
-                    ...expense,
-                    amount: value
-                  }
-                })}
+                type="number"
+                onChange={(value) => this.handleUpdateAmount(value)}
                 suffix={
-                  <InputCurrencySymbol symbol='€' />
+                  <InputCurrencySymbol symbol={currencySymbol} />
                 }
               />
             </React.Fragment>

@@ -2,9 +2,13 @@ import styled from 'styled-components';
 
 export const StyledExpenseSummary = styled.div`
   width: 450px;
-  margin: 0 auto 24px;
+  margin: 24px auto 24px;
   display: flex;
   flex-direction: column;
+
+  .title {
+    margin: 0;
+  }
 
   h1, h2 {
     text-align: center

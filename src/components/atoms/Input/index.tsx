@@ -5,7 +5,7 @@ interface IProps {
   placeholder?: string;
   disabled?: boolean;
   value?: string | number;
-  onChange?: (value: React.ReactText) => void;
+  onChange?: (value: string) => void;
   onFocus?: () => void;
   id?: string;
   type?: string;
