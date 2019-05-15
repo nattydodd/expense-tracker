@@ -49,7 +49,7 @@ class ExpenseItemEditable extends React.Component<IProps> {
         <InputUnit
           post={
             <React.Fragment>
-              <Button buttonType='confirm' onClick={this.handleClickConfirm.bind(this)} />
+              <Button buttonType='confirm' onClick={this.handleClickConfirm} />
               <Button buttonType='delete' onClick={clickDelete}/>
             </React.Fragment>
           }
